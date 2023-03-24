@@ -29,7 +29,7 @@ colorscheme.highlight_all({
   end,
   PmenuSbar = { bg = colors.faded_darker },
   PmenuSel = "CursorLine",
-  PmenuThumb = { bg = colors.faded },
+  PmenuThumb = { bg = colors.faded_darker },
   WildMenu = "PmenuSel",
   LineNr = { fg = colors.faded },
   -- Status Line
@@ -69,7 +69,7 @@ colorscheme.highlight_all({
 
   -- Plaintext {{{
   -- Basic styles {{{
-  Normal = { fg = colors.normal },
+  Normal = { fg = colors.normal, bg = colors.background },
   Title = { fg = colors.faded, bold = true },
   Bold = { bold = true },
   Italic = { italic = true },
@@ -170,7 +170,7 @@ colorscheme.highlight_all({
   ["@type.qualifier"] = { fg = colors.lukewarm }, -- type qualifiers (e.g. `const`)
   ["@storageclass"] = "StorageClass", -- visibility/life-time/etc. modifiers (e.g. `static`)
   ["@attribute"] = "Constant", -- attribute annotations (e.g. Python decorators)
-  ["@field"] = { fg = colors.gum }, -- For fields.
+  ["@field"] = { fg = colors.violet }, -- For fields.
   ["@property"] = { fg = colors.violet }, -- Same as TSField.
   -- Identifiers
 
@@ -356,6 +356,14 @@ colorscheme.highlight_all({
   LazyTaskOutput = "Statement",
   LazyUrl = "Underlined",
   -- LSPSaga
+  SagaNormal = { bg = colors.background },
+  TitleString = { fg = colors.plump, bold = true },
+  TitleIcon = "TitleString",
+  TitleSymbol = { bg = colors.background },
+  TitleFileIcon = "Title",
+  RenameBorder = { fg = colors.plump },
+  RenameNormal = { fg = colors.plump },
+  CodeActionText = "Normal",
   DefinitionCount = "Number",
   DefinitionIcon = "Special",
   ReferencesCount = "Number",
@@ -392,6 +400,17 @@ colorscheme.highlight_all({
   CmpItemKindUnit = "CmpItemKindStructDefault",
   CmpItemKindValue = "CmpItemKindConstantDefault",
   CmpItemKindVariable = "Variable",
+  -- Noice
+  NoiceCmdlinePopup = { fg = colors.fire, bold = true },
+  NoiceCmdlineIcon = "NoiceCmdlinePopup",
+  NoiceCmdlinePopupBorder = "NoiceCmdlinePopup",
+  NoicePopupBorder = "Border",
+  NoicePopupmenuBorder = "Border",
+  NoiceCmdlinePopupBorderHelp = "NoiceCmdlineIconHelp",
+  NoiceCmdlinePopupBorderLua = "NoiceCmdlineIconLua",
+  NoiceCmdlineIconHelp = { fg = colors.lukewarm },
+  NoiceCmdlineIconLua = { fg = colors.aqua },
+  NoiceCmdlineIconSearch = { fg = colors.gum },
   -- Notify
   NotifyERRORBorder = "Error",
   NotifyWARNBorder = "Warning",
