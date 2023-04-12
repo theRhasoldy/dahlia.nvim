@@ -67,6 +67,11 @@ colorscheme.highlight_all({
   end,
   -- }}}
 
+  -- Treesitter context {{{
+  TreesitterContext = "Normal",
+  TreesitterContextLineNumber = "CursorLineNr",
+  -- }}}
+
   -- Plaintext {{{
   -- Basic styles {{{
   Normal = { fg = colors.normal, bg = colors.background },
@@ -272,7 +277,8 @@ colorscheme.highlight_all({
 
   -- Folds
   FoldColumn = { bg = colors.faded, bold = true },
-  Folded = { fg = colors.faded_lighter, bg = colors.violet, italic = true },
+  Folded = { bg = nil, italic = true },
+  UfoFoldedEllipsis = { fg = colors.pumpkin, bold = true },
   -- Diffs
   DiffAdd = { fg = colors.black, bg = colors.lukewarm },
   diffAdded = "DiffAdd",
@@ -329,6 +335,11 @@ colorscheme.highlight_all({
   TelescopeBorder = "FloatBorder",
   TelescopeTitle = "Title",
   TelescopeSelection = "CursorLine",
+  -- }}}
+
+  -- Whichkey {{{
+  WhichKey = "Normal",
+  WhichKeyFloat = "Normal",
   -- }}}
 
   -- Gitsigns
