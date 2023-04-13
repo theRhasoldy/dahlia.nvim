@@ -346,6 +346,7 @@ colorscheme.highlight_all({
   GitSignsAdd = { fg = colors.lukewarm },
   GitSignsChange = { fg = colors.fire },
   GitSignsDelete = { fg = colors.plump },
+  GitSignsCurrentLineBlame = { fg = colors.faded_lighter },
   -- lazy.nvim
   LazyButton = "TabLine",
   LazyButtonActive = "TabLineSel",
