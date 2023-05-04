@@ -23,6 +23,7 @@ local colors = {
 colorscheme.highlight_all({
   -- Editor UI {{{
   ColorColumn = { fg = colors.background, reverse = true },
+  NormalFloat = { bg = nil },
   FloatBorder = { bg = nil, fg = colors.faded_darker },
   Pmenu = function(self)
     return { fg = self.Normal.fg, bg = colors.faded_darker }
@@ -306,8 +307,12 @@ colorscheme.highlight_all({
   ErrorMsg = { fg = colors.error, bold = true },
   ModeMsg = { fg = colors.warning },
   Question = { fg = colors.orange_light, underline = true },
-  Info = { fg = colors.violet, bold = true },
+  Info = { fg = colors.faded, bold = true },
+  InfoMsg = { fg = colors.faded, bold = true },
+  Hint = { fg = colors.violet, bold = true },
+  HintMsg = { fg = colors.violet, bold = true },
   Todo = { fg = colors.black, bg = colors.cyan, bold = true },
+  Warning = { fg = colors.warning, bold = true },
   WarningMsg = { fg = colors.warning, bold = true },
   -- Diagnostics
   debugBreakpoint = "ErrorMsg",
@@ -315,14 +320,14 @@ colorscheme.highlight_all({
   DiagnosticError = "Error",
   DiagnosticFloatingError = "ErrorMsg",
   DiagnosticSignError = "DiagnosticFloatingError",
-  DiagnosticWarn = { fg = colors.faded_darker, bg = colors.warning, bold = true },
+  DiagnosticWarn = "Warning",
   DiagnosticFloatingWarn = "WarningMsg",
   DiagnosticSignWarn = "DiagnosticFloatingWarn",
-  DiagnosticHint = { fg = colors.faded_darker, bg = colors.violet, bold = true },
-  DiagnosticFloatingHint = { fg = colors.violet, italic = true },
+  DiagnosticHint = "Hint",
+  DiagnosticFloatingHint = "HintMsg",
   DiagnosticSignHint = "DiagnosticFloatingHint",
-  DiagnosticInfo = { fg = colors.faded_darker, bg = colors.faded_lighter, bold = true },
-  DiagnosticFloatingInfo = { fg = colors.faded_lighter, italic = true },
+  DiagnosticInfo = "Info",
+  DiagnosticFloatingInfo = "InfoMsg",
   DiagnosticSignInfo = "DiagnosticFloatingInfo",
   DiagnosticUnderlineError = { sp = colors.error, undercurl = true },
   DiagnosticUnderlineHint = { sp = colors.violet, undercurl = true },
