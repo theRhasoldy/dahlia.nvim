@@ -4,7 +4,8 @@ vim.api.nvim_set_var("colors_name", colorscheme_name)
 local colorscheme = require(colorscheme_name)
 
 local colors = {
-  background = { "#161520", 1 },
+  -- background = { "#161520", 1 },
+  background = { "#121212", 1 },
   normal = { "#d9d5ee", 2 },
   faded = { "#5a566f", 3 },
   faded_lighter = { "#716d86", 4 },
@@ -14,17 +15,18 @@ local colors = {
   fire = { "#f68673", 8 },
   plump = { "#e5759b", 9 },
   violet = { "#cda9e0", 10 },
-  lukewarm = { "#44AF84", 11 },
-  aqua = { "#4d8eae", 12 },
-  error = { "#ff5e77", 13 },
-  warning = { "#ffcda2", 14 },
+  dawn = { "#c17ab2", 11 },
+  lukewarm = { "#50af84", 12 },
+  aqua = { "#4d8eae", 13 },
+  error = { "#ff5e77", 14 },
+  warning = { "#ffcda2", 15 },
 }
 
 colorscheme.highlight_all({
   -- Editor UI {{{
   ColorColumn = { fg = colors.background, reverse = true },
-  NormalFloat = { bg = nil },
-  FloatBorder = { bg = nil, fg = colors.faded_darker },
+  NormalFloat = { bg = colors.background },
+  FloatBorder = { bg = colors.background, fg = colors.faded_darker },
   Pmenu = function(self)
     return { fg = self.Normal.fg, bg = colors.faded_darker }
   end,
@@ -88,8 +90,8 @@ colorscheme.highlight_all({
   EndOfBuffer = "NonText",
   -- Literals
   Constant = { fg = colors.gum },
-  String = { fg = colors.pumpkin },
-  Character = { fg = colors.violet },
+  String = { fg = colors.normal },
+  Character = { fg = colors.pumpkin },
   Number = { fg = colors.gum },
   Float = "Number",
   Boolean = { fg = colors.lukewarm },
@@ -110,7 +112,7 @@ colorscheme.highlight_all({
   StorageClass = { fg = colors.fire, bold = true },
   Structure = { fg = colors.lukewarm, bold = true },
   Tag = "Underlined",
-  Type = { fg = colors.plump },
+  Type = { fg = colors.dawn },
   Typedef = { fg = colors.fire, italic = true },
   -- Pre-processor
   Define = { fg = colors.gum, nocombine = true },
@@ -171,8 +173,9 @@ colorscheme.highlight_all({
   -- Types
 
   ["@type"] = "Type", -- For types.
+  ["@type_identifier"] = "Type", -- For types.
   ["@type.builtin"] = { fg = colors.lukewarm }, -- For builtin types.
-  ["@type.definition"] = "@type", -- type definitions (e.g. `typedef` in C)
+  ["@type.definition"] = "Operator", -- type definitions (e.g. `typedef` in C)
   ["@type.qualifier"] = { fg = colors.lukewarm }, -- type qualifiers (e.g. `const`)
   ["@storageclass"] = "StorageClass", -- visibility/life-time/etc. modifiers (e.g. `static`)
   ["@attribute"] = "Constant", -- attribute annotations (e.g. Python decorators)
@@ -181,9 +184,9 @@ colorscheme.highlight_all({
   -- Identifiers
 
   ["@variable"] = { fg = colors.pumpkin }, -- Any variable name that does not have another highlight.
-  ["@variable.builtin"] = { fg = colors.violet }, -- Variable names that are defined by the languages, like this or self.
+  ["@variable.builtin"] = { fg = colors.lukewarm }, -- Variable names that are defined by the languages, like this or self.
   ["@constant"] = { fg = colors.gum }, -- For constants
-  ["@constant.builtin"] = { fg = colors.plump }, -- For constant that are built in the language: nil in Lua.
+  ["@constant.builtin"] = { fg = colors.fire }, -- For constant that are built in the language: nil in Lua.
   ["@constant.macro"] = "Macro", -- For constants that are defined by macros: NULL in C.
   ["@namespace"] = { fg = colors.lukewarm, italic = true }, -- For identifiers referring to modules and namespaces.
   ["@symbol"] = { fg = colors.gum },
@@ -207,7 +210,7 @@ colorscheme.highlight_all({
   ["@tag.attribute"] = { fg = colors.violet, italic = true }, -- Tags like html tag names.
   ["@tag.delimiter"] = { fg = colors.fire }, -- Tag delimiter like < > /
   -- Semantic tokens
-  ["@class"] = { fg = colors.plump },
+  ["@class"] = { fg = colors.dawn },
   ["@struct"] = { fg = colors.aqua },
   ["@enum"] = { fg = colors.lukewarm },
   ["@enumMember"] = { fg = colors.aqua },
@@ -236,7 +239,7 @@ colorscheme.highlight_all({
   -- typescript
   ["@constructor.typescript"] = { fg = colors.lukewarm },
   -- TSX (Typescript React)
-  ["@type.dart"] = { fg = colors.plump },
+  ["@type.dart"] = "Type",
   ["@constructor.tsx"] = { fg = colors.lukewarm },
   ["@tag.attribute.tsx"] = { fg = colors.gum, italic = true },
   -- cpp
@@ -337,6 +340,7 @@ colorscheme.highlight_all({
   Directory = { fg = colors.pumpkin },
   VertSplit = { fg = colors.faded_darker },
   -- Telescope {{{
+  TelescopeNormal = { bg = colors.background },
   TelescopeBorder = "FloatBorder",
   TelescopeTitle = "Title",
   TelescopeSelection = "CursorLine",
@@ -391,15 +395,15 @@ colorscheme.highlight_all({
   CmpItemAbbr = "Normal",
   CmpItemAbbrMatchFuzzy = { fg = colors.gum, underline = true },
   CmpItemAbbrMatchFuzzyDefault = { fg = colors.gum, underline = true },
-  CmpItemKindClass = "CmpItemKindStructDefault",
+  CmpItemKindClass = "@class",
   CmpItemKindColor = "Label",
   CmpItemKindConstant = "Constant",
-  CmpItemKindConstructor = "CmpItemKindMethodDefault",
+  CmpItemKindConstructor = "@constructor",
   CmpItemKind = "Type",
-  CmpItemKindEnum = "CmpItemKindStructDefault",
-  CmpItemKindEnumMember = "CmpItemKindConstantDefault",
+  CmpItemKindEnum = "@enum",
+  CmpItemKindEnumMember = "@enumMember",
   CmpItemKindEvent = "Repeat",
-  CmpItemKindField = "Field",
+  CmpItemKindField = "@field",
   CmpItemKindFile = "File",
   CmpItemKindFolder = "CmpItemKindFileDefault",
   CmpItemKindFunction = "Function",
@@ -408,15 +412,15 @@ colorscheme.highlight_all({
   CmpItemKindMethod = "CmpItemKindFunctionDefault",
   CmpItemKindModule = "Include",
   CmpItemKindOperator = "Operator",
-  CmpItemKindProperty = "CmpItemKindFieldDefault",
+  CmpItemKindProperty = "@property",
   CmpItemKindReference = "StorageClass",
-  CmpItemKindSnippet = "Include",
+  CmpItemKindSnippet = "Boolean",
   CmpItemKindStruct = "Structure",
-  CmpItemKindText = "NonText",
+  CmpItemKindText = "Comment",
   CmpItemKindTypeParameter = "Typedef",
   CmpItemKindUnit = "CmpItemKindStructDefault",
   CmpItemKindValue = "CmpItemKindConstantDefault",
-  CmpItemKindVariable = "Variable",
+  CmpItemKindVariable = "@variable",
   -- Noice
   NoiceCmdlinePopup = { fg = colors.fire, bold = true },
   NoiceCmdlineIcon = "NoiceCmdlinePopup",
