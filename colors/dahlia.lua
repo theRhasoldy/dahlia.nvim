@@ -125,90 +125,92 @@ colorscheme.highlight_all({
 	SpecialChar = { fg = colors.lukewarm, italic = true },
 	SpecialComment = { fg = colors.pumpkin, bold = true, nocombine = true },
 	SpecialKey = "Character",
+	-- InlayHints
+	LSPInlayHints = "Comment",
 	-- }}}
 
 	-- Treesitter {{{
 	-- Misc
 	["@comment"] = "Comment",
 	["@error"] = "Error",
-	["@preproc"] = "PreProc",                                -- various preprocessor directives & shebangs
-	["@define"] = "Define",                                  -- preprocessor definition directives
-	["@operator"] = { link = "Operator" },                   -- For any operator: +, but also -> and * in C.
+	["@preproc"] = "PreProc", -- various preprocessor directives & shebangs
+	["@define"] = "Define", -- preprocessor definition directives
+	["@operator"] = { link = "Operator" }, -- For any operator: +, but also -> and * in C.
 	-- Punctuation
-	["@punctuation.delimiter"] = "Delimiter",                -- For delimiters ie: .
-	["@punctuation.bracket"] = { fg = colors.pumpkin },      -- For brackets and parenthesis.
-	["@punctuation.special"] = { fg = colors.violet },       -- For special punctutation that does not fall in the catagories before.
+	["@punctuation.delimiter"] = "Delimiter", -- For delimiters ie: .
+	["@punctuation.bracket"] = { fg = colors.pumpkin }, -- For brackets and parenthesis.
+	["@punctuation.special"] = { fg = colors.violet }, -- For special punctutation that does not fall in the catagories before.
 	-- Literals
-	["@string"] = "String",                                  -- For strings.
-	["@string.regex"] = { fg = colors.gum, bold = true },    -- For regexes.
+	["@string"] = "String", -- For strings.
+	["@string.regex"] = { fg = colors.gum, bold = true }, -- For regexes.
 	["@string.escape"] = { fg = colors.fire, italic = true }, -- For escape characters within a string.
-	["@string.special"] = { fg = colors.aqua },              -- other special strings (e.g. dates)
-	["@character"] = "Character",                            -- character literals
-	["@character.special"] = "SpecialChar",                  -- special characters (e.g. wildcards)
-	["@boolean"] = "Boolean",                                -- For booleans.
-	["@number"] = "Number",                                  -- For all numbers
-	["@float"] = "Number",                                   -- For floats.
+	["@string.special"] = { fg = colors.aqua }, -- other special strings (e.g. dates)
+	["@character"] = "Character", -- character literals
+	["@character.special"] = "SpecialChar", -- special characters (e.g. wildcards)
+	["@boolean"] = "Boolean", -- For booleans.
+	["@number"] = "Number", -- For all numbers
+	["@float"] = "Number", -- For floats.
 	-- Functions
-	["@function"] = "Function",                              -- For function (calls and definitions).
-	["@function.builtin"] = { fg = colors.fire },            -- For builtin functions: table.insert in Lua.
-	["@function.call"] = "@function",                        -- function calls
-	["@function.macro"] = { fg = colors.pumpkin },           -- For macro defined functions (calls and definitions): each macro_rules in RusC.
-	["@method"] = { fg = colors.plump },                     -- For method calls and definitions.
-	["@method.call"] = "@method",                            -- method calls
-	["@constructor"] = { fg = colors.aqua },                 -- For constructor calls and definitions: = { } in Lua, and Java constructors.
-	["@parameter"] = { fg = colors.violet, italic = true },  -- For parameters of a function.
+	["@function"] = "Function", -- For function (calls and definitions).
+	["@function.builtin"] = { fg = colors.fire }, -- For builtin functions: table.insert in Lua.
+	["@function.call"] = "@function", -- function calls
+	["@function.macro"] = { fg = colors.pumpkin }, -- For macro defined functions (calls and definitions): each macro_rules in RusC.
+	["@method"] = { fg = colors.plump }, -- For method calls and definitions.
+	["@method.call"] = "@method", -- method calls
+	["@constructor"] = { fg = colors.aqua }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
+	["@parameter"] = { fg = colors.violet, italic = true }, -- For parameters of a function.
 	-- Keywords
-	["@keyword"] = "Keyword",                                -- For keywords that don't fall in previous categories.
-	["@keyword.function"] = { fg = colors.violet },          -- For keywords used to define a function.
-	["@keyword.operator"] = { fg = colors.violet },          -- For new keyword operator
+	["@keyword"] = "Keyword", -- For keywords that don't fall in previous categories.
+	["@keyword.function"] = { fg = colors.violet }, -- For keywords used to define a function.
+	["@keyword.operator"] = { fg = colors.violet }, -- For new keyword operator
 	["@keyword.return"] = { fg = colors.fire, bold = true, italic = true },
 	-- JS & derivative
 	["@keyword.export"] = { fg = colors.fire, italic = true },
 	["@conditional"] = "Conditional", -- For keywords related to conditionnals.
-	["@repeat"] = "Repeat",          -- For keywords related to loops.
+	["@repeat"] = "Repeat", -- For keywords related to loops.
 	-- @debug            ; keywords related to debugging
-	["@label"] = "Label",            -- For labels: label: in C and :label: in Lua.
-	["@include"] = "Include",        -- For includes: #include in C, use or extern crate in Rust, or require in Lua.
-	["@exception"] = "Exception",    -- For exception related keywords.
+	["@label"] = "Label", -- For labels: label: in C and :label: in Lua.
+	["@include"] = "Include", -- For includes: #include in C, use or extern crate in Rust, or require in Lua.
+	["@exception"] = "Exception", -- For exception related keywords.
 	-- Types
 
-	["@type"] = "Type",                            -- For types.
-	["@type_identifier"] = "Type",                 -- For types.
-	["@type.builtin"] = { fg = colors.lukewarm },  -- For builtin types.
-	["@type.definition"] = "Operator",             -- type definitions (e.g. `typedef` in C)
+	["@type"] = "Type", -- For types.
+	["@type_identifier"] = "Type", -- For types.
+	["@type.builtin"] = { fg = colors.lukewarm }, -- For builtin types.
+	["@type.definition"] = "Operator", -- type definitions (e.g. `typedef` in C)
 	["@type.qualifier"] = { fg = colors.lukewarm }, -- type qualifiers (e.g. `const`)
-	["@storageclass"] = "StorageClass",            -- visibility/life-time/etc. modifiers (e.g. `static`)
-	["@attribute"] = "Constant",                   -- attribute annotations (e.g. Python decorators)
-	["@field"] = { fg = colors.violet },           -- For fields.
-	["@property"] = { fg = colors.violet },        -- Same as TSField.
+	["@storageclass"] = "StorageClass", -- visibility/life-time/etc. modifiers (e.g. `static`)
+	["@attribute"] = "Constant", -- attribute annotations (e.g. Python decorators)
+	["@field"] = { fg = colors.violet }, -- For fields.
+	["@property"] = { fg = colors.violet }, -- Same as TSField.
 	-- Identifiers
 
-	["@variable"] = { fg = colors.pumpkin },                 -- Any variable name that does not have another highlight.
-	["@variable.builtin"] = { fg = colors.lukewarm },        -- Variable names that are defined by the languages, like this or self.
-	["@constant"] = { fg = colors.gum },                     -- For constants
-	["@constant.builtin"] = { fg = colors.fire },            -- For constant that are built in the language: nil in Lua.
-	["@constant.macro"] = "Macro",                           -- For constants that are defined by macros: NULL in C.
+	["@variable"] = { fg = colors.pumpkin }, -- Any variable name that does not have another highlight.
+	["@variable.builtin"] = { fg = colors.lukewarm }, -- Variable names that are defined by the languages, like this or self.
+	["@constant"] = { fg = colors.gum }, -- For constants
+	["@constant.builtin"] = { fg = colors.fire }, -- For constant that are built in the language: nil in Lua.
+	["@constant.macro"] = "Macro", -- For constants that are defined by macros: NULL in C.
 	["@namespace"] = { fg = colors.lukewarm, italic = true }, -- For identifiers referring to modules and namespaces.
 	["@symbol"] = { fg = colors.gum },
 	-- Text
 
-	["@text"] = { fg = colors.normal },                                     -- For strings considerated text in a markup language.
-	["@text.strong"] = { fg = colors.pumpkin, bold = true },                -- bold
-	["@text.emphasis"] = { fg = colors.pumpkin, italic = true },            -- italic
-	["@text.underline"] = "Underline",                                      -- underlined text
-	["@text.strike"] = { fg = colors.normal, strikethrough = true },        -- strikethrough text
-	["@text.title"] = "Ttile",                                              -- titles like: # Example
-	["@text.literal"] = { fg = colors.pumpkin },                            -- used for inline code in markdown and for doc in python (""")
+	["@text"] = { fg = colors.normal }, -- For strings considerated text in a markup language.
+	["@text.strong"] = { fg = colors.pumpkin, bold = true }, -- bold
+	["@text.emphasis"] = { fg = colors.pumpkin, italic = true }, -- italic
+	["@text.underline"] = "Underline", -- underlined text
+	["@text.strike"] = { fg = colors.normal, strikethrough = true }, -- strikethrough text
+	["@text.title"] = "Ttile", -- titles like: # Example
+	["@text.literal"] = { fg = colors.pumpkin }, -- used for inline code in markdown and for doc in python (""")
 	["@text.uri"] = { fg = colors.violet, italic = true, underline = true }, -- urls, links and emails
-	["@text.math"] = { fg = colors.aqua },                                  -- math environments (e.g. `$ ... $` in LaTeX)
-	["@text.environment"] = { fg = colors.lukewarm },                       -- text environments of markup languages
-	["@text.environment.name"] = { fg = colors.aqua },                      -- text indicating the type of an environment
-	["@text.reference"] = { fg = colors.gum, bold = true },                 -- references
-	["@text.todo"] = { fg = colors.lukewarm },                              -- todo notes
+	["@text.math"] = { fg = colors.aqua }, -- math environments (e.g. `$ ... $` in LaTeX)
+	["@text.environment"] = { fg = colors.lukewarm }, -- text environments of markup languages
+	["@text.environment.name"] = { fg = colors.aqua }, -- text indicating the type of an environment
+	["@text.reference"] = { fg = colors.gum, bold = true }, -- references
+	["@text.todo"] = { fg = colors.lukewarm }, -- todo notes
 	-- Tags
-	["@tag"] = { fg = colors.gum },                                         -- Tags like html tag names.
-	["@tag.attribute"] = { fg = colors.violet, italic = true },             -- Tags like html tag names.
-	["@tag.delimiter"] = { fg = colors.fire },                              -- Tag delimiter like < > /
+	["@tag"] = { fg = colors.gum }, -- Tags like html tag names.
+	["@tag.attribute"] = { fg = colors.violet, italic = true }, -- Tags like html tag names.
+	["@tag.delimiter"] = { fg = colors.fire }, -- Tag delimiter like < > /
 	-- Semantic tokens
 	["@class"] = { fg = colors.dawn },
 	["@struct"] = { fg = colors.aqua },
@@ -233,7 +235,7 @@ colorscheme.highlight_all({
 	-- toml
 	["@property.toml"] = { fg = colors.plump }, -- Differentiates between string and properties
 	-- json
-	["@label.json"] = { fg = colors.aqua },    -- For labels: label: in C and :label: in Lua.
+	["@label.json"] = { fg = colors.aqua }, -- For labels: label: in C and :label: in Lua.
 	-- lua
 	["@constructor.lua"] = { fg = colors.gum }, -- For constructor calls and definitions: = { } in Lua, and Java constructors.
 	-- typescript
