@@ -126,7 +126,7 @@ colorscheme.highlight_all({
 	SpecialComment = { fg = colors.pumpkin, bold = true, nocombine = true },
 	SpecialKey = "Character",
 	-- InlayHints
-	LSPInlayHints = { fg = colors.gray_light, italic = true },
+	LSPInlayHint = { fg = colors.gray_light, italic = true },
 	-- }}}
 
 	-- Treesitter {{{
