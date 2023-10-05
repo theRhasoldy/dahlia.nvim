@@ -10,16 +10,17 @@ local colors = {
 	faded = { "#5a566f", 3 },
 	faded_lighter = { "#716d86", 4 },
 	faded_darker = { "#353344", 5 },
-	pumpkin = { "#ffbdbf", 6 },
-	gum = { "#F69C99", 7 },
-	fire = { "#f68673", 8 },
-	plump = { "#e5759b", 9 },
-	violet = { "#cda9e0", 10 },
-	dawn = { "#c17ab2", 11 },
-	lukewarm = { "#50af84", 12 },
-	aqua = { "#4d8eae", 13 },
-	error = { "#ff5e77", 14 },
-	warning = { "#ffcda2", 15 },
+	cursor = { "#2a2938", 6 },
+	pumpkin = { "#ffbdbf", 7 },
+	gum = { "#F69C99", 8 },
+	fire = { "#f68673", 9 },
+	plump = { "#e5759b", 10 },
+	violet = { "#cda9e0", 11 },
+	dawn = { "#c17ab2", 12 },
+	lukewarm = { "#50af84", 13 },
+	aqua = { "#4d8eae", 14 },
+	error = { "#ff5e77", 15 },
+	warning = { "#ffcda2", 16 },
 }
 
 colorscheme.highlight_all({
@@ -63,8 +64,8 @@ colorscheme.highlight_all({
 	-- Cursor {{{
 	Cursor = { fg = colors.pink, bg = colors.pink, reverse = true },
 	CursorIM = "Cursor",
-	CursorColumn = { bg = colors.faded_darker },
-	CursorLine = { bg = colors.faded_darker },
+	CursorColumn = { bg = colors.cursor },
+	CursorLine = { bg = colors.cursor },
 	CursorLineNr = function(self)
 		return { fg = colors.plump, bg = self.LineNr.bg, bold = true }
 	end,
