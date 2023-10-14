@@ -287,18 +287,15 @@ colorscheme.highlight_all({
   Folded = { bg = nil, italic = true },
   UfoFoldedEllipsis = { fg = colors.pumpkin, bold = true },
   -- Diffs
-  DiffAdd = { fg = colors.black, bg = colors.lukewarm },
-  diffAdded = "DiffAdd",
-  DiffChange = { fg = colors.fire },
-  DiffDelete = function(self)
-    return { fg = self.DiffAdd.fg, bg = colors.plump }
-  end,
+  DiffAdd = { bg = "#2D453F" },
+  DiffDelete = { bg = "#6B373F" },
+  DiffChange = { bg = "#3A2D45" },
+  DiffText = { bg = "#5A4869" },
+  diffRemoved = "DiffDelete",
   DiffviewDiffAdd = { bg = "#2D453F" },
   DiffviewDiffDelete = { bg = "#6B373F" },
   DiffviewDiffChange = { bg = "#3A2D45" },
   DiffviewDiffText = { bg = "#5A4869" },
-  DiffText = { bg = "#6B373F" },
-  diffRemoved = "DiffDelete",
   -- Searching
   IncSearch = { bold = true, underline = true },
   Search = { sp = colors.white, underline = true },
