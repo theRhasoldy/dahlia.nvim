@@ -293,21 +293,11 @@ colorscheme.highlight_all({
   DiffDelete = function(self)
     return { fg = self.DiffAdd.fg, bg = colors.plump }
   end,
-  DiffviewDiffAdd = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#2D453F" }
-  end,
-  DiffviewDiffDelete = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#6B373F" }
-  end,
-  DiffviewDiffChange = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#3A2D45" }
-  end,
-  DiffviewDiffText = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#5A4869" }
-  end,
-  DiffText = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#6B373F" }
-  end,
+  DiffviewDiffAdd = { bg = "#2D453F" },
+  DiffviewDiffDelete = { bg = "#6B373F" },
+  DiffviewDiffChange = { bg = "#3A2D45" },
+  DiffviewDiffText = { bg = "#5A4869" },
+  DiffText = { bg = "#6B373F" },
   diffRemoved = "DiffDelete",
   -- Searching
   IncSearch = { bold = true, underline = true },
