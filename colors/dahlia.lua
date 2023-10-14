@@ -21,6 +21,10 @@ local colors = {
   aqua = { "#4d8eae", 14 },
   error = { "#ff5e77", 15 },
   warning = { "#ffcda2", 16 },
+  diffAdd = { "#2D453F", 16 },
+  diffDelete = { "#6B373F", 16 },
+  diffChange = { "#3A2D45", 16 },
+  diffText = { "#5A4869", 16 },
 }
 
 colorscheme.highlight_all({
@@ -287,17 +291,17 @@ colorscheme.highlight_all({
   Folded = { bg = nil, italic = true },
   UfoFoldedEllipsis = { fg = colors.pumpkin, bold = true },
   -- Diffs
-  DiffAdd = { fg = colors.black, bg = "#2D453F" },
+  DiffAdd = { fg = colors.black, bg = colors.diffAdd },
   diffAdded = "DiffAdd",
-  DiffChange = { fg = "#3A2D45" },
+  DiffChange = { fg = colors.diffChange },
   DiffDelete = function(self)
-    return { fg = self.DiffAdd.fg, bg = "#6B373F" }
+    return { fg = self.DiffAdd.fg, bg = colors.diffDelete }
   end,
-  DiffviewDiffAdd = { bg = "#2D453F" },
-  DiffviewDiffDelete = { bg = "#6B373F" },
-  DiffviewDiffChange = { bg = "#3A2D45" },
-  DiffviewDiffText = { bg = "#5A4869" },
-  DiffText = { bg = "#5A4869" },
+  DiffviewDiffAdd = { bg = colors.diffAdd },
+  DiffviewDiffDelete = { bg = colors.diffDelete },
+  DiffviewDiffChange = { bg = colors.diffChange },
+  DiffviewDiffText = { bg = colors.diffText },
+  DiffText = { bg = colors.diffText },
   diffRemoved = "DiffDelete",
   -- Searching
   IncSearch = { bold = true, underline = true },
